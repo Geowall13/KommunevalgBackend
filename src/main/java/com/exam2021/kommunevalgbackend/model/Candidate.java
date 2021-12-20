@@ -24,12 +24,9 @@ public class Candidate {
     private String surName;
 
     @ManyToOne
-    @JoinColumn(name="party")
+    @JoinColumn(name = "party")
     @JsonManagedReference
     private Party party;
-
-    @Column
-    private int votes;
 
     public long getId() {
         return id;
@@ -70,14 +67,4 @@ public class Candidate {
     public void setParty(Party party) {
         this.party = party;
     }
-
-    public int getVotes() {
-        return votes;
-    }
-
-    public void setVotes(int votes) {
-        this.votes = votes;
-    }
-
-
 }

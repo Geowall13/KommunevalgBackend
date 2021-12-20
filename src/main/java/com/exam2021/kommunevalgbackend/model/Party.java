@@ -23,11 +23,6 @@ public class Party {
     @JsonBackReference
     private List<Candidate> candidates;
 
-    @ManyToOne
-    @JoinColumn(name = "municipality")
-    @JsonBackReference
-    private Municipality municipality;
-
     @Column
     private int votes;
 
@@ -61,14 +56,6 @@ public class Party {
 
     public void setCandidates(List<Candidate> candidates) {
         this.candidates = candidates;
-    }
-
-    public Municipality getMunicipality() {
-        return municipality;
-    }
-
-    public void setMunicipality(Municipality municipality) {
-        this.municipality = municipality;
     }
 
     public int getVotes() {

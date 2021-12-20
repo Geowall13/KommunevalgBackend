@@ -12,8 +12,6 @@ public class CandidateDTO {
 
     private String surName;
 
-    private int votes;
-
     private long partyId;
 
     public long getId() {
@@ -56,20 +54,13 @@ public class CandidateDTO {
         this.partyId = partyId;
     }
 
-    public int getVotes() {
-        return votes;
-    }
-
-    public void setVotes(int votes) {
-        this.votes = votes;
-    }
 
     public Candidate convertToCandidate(PartyRepository partyRepository){
         Candidate candidate = new Candidate();
         candidate.setFirstName(firstName);
         candidate.setMiddleName(middleName);
         candidate.setSurName(surName);
-        candidate.setVotes(votes);
+
         candidate.setId(id);
         //TODO: error handling
         Party party = partyRepository.findById(partyId).get();

@@ -47,4 +47,5 @@ public class PartyController {
         return new ResponseEntity<>(parties, HttpStatus.OK);
     }
 
+
 }
