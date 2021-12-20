@@ -43,4 +43,18 @@ public class CandidateController {
         candidateRepository.save(candidate);
         return new ResponseEntity<>(candidate, HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/candidate/{id}", consumes = "application/json")
+    public ResponseEntity<Candidate> updateCandidate(@RequestBody Candidate candidate, @PathVariable long id){
+        Party party = partyRepository.findById(id).get();
+        candidate.setParty(party);
+        candidateRepository.save(candidate);
+        return new ResponseEntity<>(candidate, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/candidate/{id}")
+    public ResponseEntity<Long> deleteCandidate(@PathVariable long id){
+        candidateRepository.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
 }
