@@ -1,5 +1,8 @@
 package com.exam2021.kommunevalgbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +17,7 @@ public class Candidate {
     private String firstName;
 
     @Column
+    @Nullable
     private String middleName;
 
     @Column
@@ -21,6 +25,7 @@ public class Candidate {
 
     @ManyToOne
     @JoinColumn(name="party")
+    @JsonBackReference
     private Party party;
 
     @Column
@@ -73,4 +78,6 @@ public class Candidate {
     public void setVotes(int votes) {
         this.votes = votes;
     }
+
+
 }

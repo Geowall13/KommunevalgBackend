@@ -1,5 +1,7 @@
 package com.exam2021.kommunevalgbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class Municipality {
     private String name;
 
     @OneToMany(mappedBy = "municipality", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Party> parties;
 
     @Column
@@ -72,4 +75,6 @@ public class Municipality {
     public void setTotalVotes(int totalVotes) {
         this.totalVotes = totalVotes;
     }
+
+
 }
