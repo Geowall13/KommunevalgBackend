@@ -62,7 +62,6 @@ public class CandidateDTO {
         candidate.setSurName(surName);
 
         candidate.setId(id);
-        //TODO: error handling
         Party party = partyRepository.findById(partyId).get();
         candidate.setParty(party);
         return candidate;
