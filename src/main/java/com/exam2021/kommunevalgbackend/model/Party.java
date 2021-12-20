@@ -18,7 +18,14 @@ public class Party {
     private String initials;
 
     @OneToMany(mappedBy = "party", cascade = CascadeType.ALL)
-    private List<Candidate> candidate;
+    private List<Candidate> candidates;
+
+    @ManyToOne
+    @JoinColumn(name = "municipality")
+    private Municipality municipality;
+
+    @Column
+    private int votes;
 
     public long getId() {
         return Id;
@@ -44,11 +51,27 @@ public class Party {
         this.initials = initials;
     }
 
-    public List<Candidate> getCandidate() {
-        return candidate;
+    public List<Candidate> getCandidates() {
+        return candidates;
     }
 
-    public void setCandidate(List<Candidate> candidate) {
-        this.candidate = candidate;
+    public void setCandidates(List<Candidate> candidates) {
+        this.candidates = candidates;
+    }
+
+    public Municipality getMunicipality() {
+        return municipality;
+    }
+
+    public void setMunicipality(Municipality municipality) {
+        this.municipality = municipality;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
 }

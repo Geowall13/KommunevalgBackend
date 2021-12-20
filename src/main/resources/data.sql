@@ -1,11 +1,14 @@
 
+/* Municipality */
+INSERT INTO municipality(name, eligible_voters) VALUES("Samsø Kommune", 3187);
+
 /* Parties */
-INSERT INTO party(name, initials) VALUES("Socialdemokratiet", "A");
-INSERT INTO party(name, initials) VALUES("Det konservative Folkeparti", "C");
-INSERT INTO party(name, initials) VALUES("Socialistisk Folkeparti", "F");
-INSERT INTO party(name, initials) VALUES("Dansk Folkeparti", "O");
-INSERT INTO party(name, initials) VALUES("Venstre, Danmarks Liberale Parti", "V");
-INSERT INTO party(name, initials) VALUES("Enhedslisten + De Rød Grønne", "Ø");
+INSERT INTO party(name, initials, municipality) VALUES("Socialdemokratiet", "A", 1);
+INSERT INTO party(name, initials, municipality) VALUES("Det konservative Folkeparti", "C", 1);
+INSERT INTO party(name, initials, municipality) VALUES("Socialistisk Folkeparti", "F", 1);
+INSERT INTO party(name, initials, municipality) VALUES("Dansk Folkeparti", "O", 1);
+INSERT INTO party(name, initials, municipality) VALUES("Venstre, Danmarks Liberale Parti", "V", 1);
+INSERT INTO party(name, initials, municipality) VALUES("Enhedslisten + De Rød Grønne", "Ø", 1);
 
 
 /* Kandidater for Socialdemokraterne */

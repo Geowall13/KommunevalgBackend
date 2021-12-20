@@ -23,6 +23,9 @@ public class Candidate {
     @JoinColumn(name="party")
     private Party party;
 
+    @Column
+    private int votes;
+
     public long getId() {
         return id;
     }
@@ -61,5 +64,13 @@ public class Candidate {
 
     public void setParty(Party party) {
         this.party = party;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
 }
