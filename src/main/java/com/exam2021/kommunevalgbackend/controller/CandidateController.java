@@ -2,6 +2,7 @@ package com.exam2021.kommunevalgbackend.controller;
 
 
 import com.exam2021.kommunevalgbackend.model.Candidate;
+import com.exam2021.kommunevalgbackend.model.CandidateDTO;
 import com.exam2021.kommunevalgbackend.model.Party;
 import com.exam2021.kommunevalgbackend.repository.CandidateRepository;
 import com.exam2021.kommunevalgbackend.repository.PartyRepository;
@@ -36,18 +37,16 @@ public class CandidateController {
         return new ResponseEntity<>(candidates, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/candidate/{id}", consumes = "application/json")
-    public ResponseEntity<Candidate> createCandidate(@RequestBody Candidate candidate, @PathVariable long id){
-        Party party = partyRepository.findById(id).get();
-        candidate.setParty(party);
+    @PostMapping(value = "/candidate", consumes = "application/json")
+    public ResponseEntity<Candidate> createCandidate(@RequestBody CandidateDTO candidateDTO){
+        Candidate candidate = candidateDTO.convertToCandidate(partyRepository);
         candidateRepository.save(candidate);
         return new ResponseEntity<>(candidate, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/candidate/{id}", consumes = "application/json")
-    public ResponseEntity<Candidate> updateCandidate(@RequestBody Candidate candidate, @PathVariable long id){
-        Party party = partyRepository.findById(id).get();
-        candidate.setParty(party);
+    @PutMapping(value = "/candidate", consumes = "application/json")
+    public ResponseEntity<Candidate> updateCandidate(@RequestBody CandidateDTO candidateDTO){
+        Candidate candidate = candidateDTO.convertToCandidate(partyRepository);
         candidateRepository.save(candidate);
         return new ResponseEntity<>(candidate, HttpStatus.CREATED);
     }
