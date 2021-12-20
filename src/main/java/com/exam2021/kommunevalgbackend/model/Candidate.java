@@ -1,6 +1,6 @@
 package com.exam2021.kommunevalgbackend.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -25,7 +25,7 @@ public class Candidate {
 
     @ManyToOne
     @JoinColumn(name="party")
-    @JsonBackReference
+    @JsonManagedReference
     private Party party;
 
     @Column

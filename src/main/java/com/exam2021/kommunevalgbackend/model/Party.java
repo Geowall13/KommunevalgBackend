@@ -2,7 +2,6 @@ package com.exam2021.kommunevalgbackend.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,13 +14,13 @@ public class Party {
     private long Id;
 
     @Column
-    private String name;
+    private String partyName;
 
     @Column
     private String initials;
 
     @OneToMany(mappedBy = "party", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonBackReference
     private List<Candidate> candidates;
 
     @ManyToOne
@@ -40,12 +39,12 @@ public class Party {
         Id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPartyName() {
+        return partyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPartyName(String partyName) {
+        this.partyName = partyName;
     }
 
     public String getInitials() {

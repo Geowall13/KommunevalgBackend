@@ -3,7 +3,6 @@ package com.exam2021.kommunevalgbackend.controller;
 
 import com.exam2021.kommunevalgbackend.model.Candidate;
 import com.exam2021.kommunevalgbackend.model.CandidateDTO;
-import com.exam2021.kommunevalgbackend.model.Party;
 import com.exam2021.kommunevalgbackend.repository.CandidateRepository;
 import com.exam2021.kommunevalgbackend.repository.PartyRepository;
 import org.springframework.http.HttpStatus;

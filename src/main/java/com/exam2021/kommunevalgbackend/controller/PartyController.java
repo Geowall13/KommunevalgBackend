@@ -1,11 +1,12 @@
 package com.exam2021.kommunevalgbackend.controller;
 
 import com.exam2021.kommunevalgbackend.model.Candidate;
+import com.exam2021.kommunevalgbackend.model.Party;
 import com.exam2021.kommunevalgbackend.repository.CandidateRepository;
 import com.exam2021.kommunevalgbackend.repository.PartyRepository;
-import org.springframework.data.domain.Example;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class PartyController {
 
@@ -37,6 +39,12 @@ public class PartyController {
             }
         }
         return new ResponseEntity<>(returnList, HttpStatus.OK);
+    }
+
+    @GetMapping("/parties")
+    public ResponseEntity<List<Party>> getParties(){
+        List<Party> parties = partyRepository.findAll();
+        return new ResponseEntity<>(parties, HttpStatus.OK);
     }
 
 }
