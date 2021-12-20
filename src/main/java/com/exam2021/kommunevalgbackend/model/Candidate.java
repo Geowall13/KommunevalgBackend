@@ -11,7 +11,13 @@ public class Candidate {
     private long id;
 
     @Column
-    private String name;
+    private String firstName;
+
+    @Column
+    private String middleName;
+
+    @Column
+    private String surName;
 
     @ManyToOne
     @JoinColumn(name="party")
@@ -25,12 +31,28 @@ public class Candidate {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
     }
 
     public Party getParty() {
